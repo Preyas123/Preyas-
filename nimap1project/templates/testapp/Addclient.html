@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+     <style>
+        th{
+            color : rgb(105,68,44);
+            background-color: rgb(207,161, 134);
+            border:1px solid black;
+            OPACITY : 90%
+
+            }
+
+        td{
+            border:1px solid black;
+            cell-spacing : 0px;
+            background-color: #FAF0E6;
+            OPACITY : 90%
+
+            }
+
+
+
+        table{
+        height:300px;
+        width:500px;
+        border:1px solid black;
+        padding : 0px;
+        cell-spacing : 10px;
+
+
+
+        }
+
+
+        body{
+            background-image: url("{% static '/bg2.jpg' %}");
+            background-size : 100%;
+            }
+
+    </style>
+</head>
+<body>
+<center>
+
+    <h1>Add Client Details</h1>
+<form name="frm2" action="" method="post">
+    {% csrf_token %}
+
+    <label>Client no:</label><input type="text" name="txt4" /><br><br>
+    <label>Client name:</label><input type="text" name="txt5"/><br><br>
+    <label>Client city:</label><input type="text" name="txt6"/><br><br>
+
+
+    <input type="submit" value="Add Client and Project">
+    <button><a href="/clientinfo">Show Client info  </a></button>
+</form>
+</center>
+
+
+</body>
+</html>

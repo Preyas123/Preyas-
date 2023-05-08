@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        th{
+            color : rgb(105,68,44);
+            background-color: rgb(207,161, 134);
+            border:1px solid black;
+            OPACITY : 90%
+
+            }
+
+        td{
+            border:1px solid black;
+            cell-spacing : 0px;
+            background-color: #FAF0E6;
+            OPACITY : 90%
+
+            }
+
+
+
+        table{
+        height:300px;
+        width:500px;
+        border:1px solid black;
+        padding : 0px;
+        cell-spacing : 10px;
+
+
+
+        }
+
+
+        body{
+            background-image: url("{% static '/bg2.jpg' %}");
+            background-size : 100%;
+            }
+
+    </style>
+</head>
+<center>
+<body>
+<h1>Users Information</h1>
+{% if users %}
+   <table style="">
+       <tr>
+           <th style="">User id</th>
+           <th>User no</th>
+           <th>User name</th>
+           <th>User City</th>
+           <th>Project</th>
+           <th>User Assinged</th>
+
+           <th>Update</th>
+           <th>Delete</th>
+
+       </tr>
+
+       {% for use in users %}
+       <tr>
+           <td>{{use.id}}</td>
+           <td>{{use.uno}}</td>
+           <td>{{use.uname}}</td>
+           <td>{{use.ucity}}</td>
+           <td>{{use.uproject}}</td>
+           <td>{{use.uassinged}}</td>
+
+           <td><button><a href="update/{{use.id}}/">Update</a></button></td>
+           <td><button><a href="delete/{{use.id}}/">Delete</a></button></td>
+       </tr>
+       {% endfor %}
+   </table>
+{% else %}
+   <h2>Record not Found</h2>
+{% endif %}
+<br>
+<br>
+<br>
+
+<button><a href="/insert">Back</a></button>
+
+
+
+
+
+
+
+</body>
+</center>
+</html>

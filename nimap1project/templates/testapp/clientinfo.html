@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <style>
+        th{
+            color : rgb(105,68,44);
+            background-color: rgb(207,161, 134);
+            border:1px solid black;
+            OPACITY : 90%
+
+            }
+
+        td{
+            border:1px solid black;
+            cell-spacing : 0px;
+            background-color: #FAF0E6;
+            OPACITY : 90%
+
+            }
+
+
+
+        table{
+        height:300px;
+        width:500px;
+        border:1px solid black;
+        padding : 0px;
+        cell-spacing : 10px;
+
+
+
+        }
+
+
+        body{
+            background-image: url("{% static '/bg2.jpg' %}");
+            background-size : 100%;
+            }
+
+    </style>
+</head>
+<body>
+<center>
+<h1>Client Information</h1>
+{% if clients %}
+   <table style="height:300px;width:500px;border:1px solid blue">
+       <tr>
+           <th>Client id</th>
+           <th>Client no</th>
+           <th>Client name</th>
+           <th>Client City</th>
+           <th>Update</th>
+           <th>Delete</th>
+       </tr>
+
+       {% for cli in clients %}
+       <tr>
+           <td>{{cli.id}}</td>
+           <td>{{cli.cno}}</td>
+           <td>{{cli.cname}}</td>
+           <td>{{cli.ccity}}</td>
+           <td><button><a href="update/{{cli.id}}/">Update</a></button></td>
+           <td><button><a href="delete/{{cli.id}}/">Delete</a></button></td>
+       </tr>
+       {% endfor %}
+   </table>
+{% else %}
+   <h2>Record not Found</h2>
+{% endif %}
+<br>
+<br>
+<br>
+
+<button><a href="/insertclient">Back</a></button>
+
+</center>
+
+</body>
+</html>
